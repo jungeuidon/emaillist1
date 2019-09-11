@@ -18,9 +18,11 @@
 		    <version>2.4.0</version>
 		</dependency>	
 	</dependencies>
-
+	
+	
 	<build>
 		<sourceDirectory>src/main/java</sourceDirectory>
+		<finalName>emaillist1</finalName>
 		<resources>
 			<resource>
 				<directory>${project.basedir}/src/main/resources</directory>
