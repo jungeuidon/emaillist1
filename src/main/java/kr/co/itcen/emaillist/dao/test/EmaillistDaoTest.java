@@ -15,7 +15,7 @@ public class EmaillistDaoTest {
 	}
 	
 	private static void deleteAll() {
-		new EmaillistDao().delate();
+		new EmaillistDao().delete();
 	}
 	
 	private static void insertTest() {

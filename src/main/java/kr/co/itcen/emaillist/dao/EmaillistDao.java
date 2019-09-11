@@ -27,8 +27,8 @@ public class EmaillistDao {
 			
 			String sql = "insert into emaillist values(null, ?, ?, ?)";
 			pstmt = connection.prepareStatement(sql);
-			pstmt.setString(1, vo.getFirstName());
-			pstmt.setString(2, vo.getLastName());
+			pstmt.setString(1, vo.getLastName());
+			pstmt.setString(2, vo.getFirstName());
 			pstmt.setString(3, vo.getEmail());
 			int count = pstmt.executeUpdate();
 			result = (count == 1);
@@ -72,8 +72,8 @@ public class EmaillistDao {
 		try {
 			Class.forName("org.mariadb.jdbc.Driver");
 		
-			String url = "jdbc:mariadb://192.168.1.62:3306/webdb?characterEncoding=utf8";
-			connection = DriverManager.getConnection(url, "webdb", "webdb");
+			String url = "jdbc:mariadb://192.168.1.40:3306/webdb?characterEncoding=utf8";
+			connection = DriverManager.getConnection(url, "webdb", "bit1234");
 		
 		} catch (ClassNotFoundException e) {
 			System.out.println("Fail to Loading Driver:" + e);
@@ -85,7 +85,7 @@ public class EmaillistDao {
 	public void delate(Long no) {
 	}	
 
-	public void delate() {
+	public void delete() {
 		Connection connection = null;
 		PreparedStatement pstmt = null;
 		
@@ -130,8 +130,8 @@ public class EmaillistDao {
 			
 			while(rs.next()){
 				Long no = rs.getLong(1);
-				String firstName = rs.getString(2);
-				String lastName = rs.getString(3);
+				String lastName = rs.getString(2);
+				String firstName = rs.getString(3);
 				String email = rs.getString(4);
 				
 				EmaillistVo vo= new EmaillistVo();
@@ -141,6 +141,7 @@ public class EmaillistDao {
 				vo.setEmail(email);
 				
 				result.add(vo);
+				
 			}
 		} catch (SQLException e) {
 			System.out.println("error:" + e);
